@@ -1,5 +1,0 @@
-<services>
-	<service id="b2c_change_orderloglist">
-        <class>logisticstrack_orderlog</class>
-    </service>
-</services>

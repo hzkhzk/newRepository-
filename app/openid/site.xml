@@ -1,9 +1,0 @@
-<site> 
-    <module controller='site_trust' >
-        <name>trust</name>
-        <title>信任登录</title>
-        <disable>false</disable>
-    </module>
-    
-</site>
-
