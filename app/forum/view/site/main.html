@@ -1,0 +1,32 @@
+
+<div id="main" class="clearfix">
+  <!-- 左栏 -->
+   <div><a href="<{$picture.item_url}>" target="_blank" ><img src="<{$picture.item_imageid}>"></a></div>
+  <div class="page-aside">
+    <!-- 论坛类型 -->
+    <div id="member_menu" class="member-menu">
+      <{foreach from=$cpmenu item=menus}>
+      <div class="member-menu-mod">
+        <ul class="member-menu-list">
+            <li>
+              <a href="<{if $menus.href}><{$menus.href}><{else}><{link app=$menus.app ctl=$menus.ctl act=$menus.link args=$menus.args}><{/if}>"<{if $current == $menus.link || $menus.link == $controller}> class="active"<{/if}>><{$menus.label}></a>
+            </li>
+        </ul>
+      </div>
+      <{/foreach}>
+      <div class="member-menu-function" >
+       <a href="<{link app=forum ctl=site_theme act=add }>" class="lnklike" >发 帖</a>
+       <a href="<{link app=forum ctl=site_theme act=myPost}>" >我 的 帖 子</a>
+       </div>
+       
+    </div>
+   <!--  <div class="page-aside">
+     <ul class="member-menu-list">
+       <li>
+        <a href="<{link app=forum ctl=site_theme act=myPost}>">我的帖子</a>
+       </li>
+     </ul>
+    </div> -->
+  </div>
+  <{include file=$_PAGE_ app=$app_id}>
+</div>

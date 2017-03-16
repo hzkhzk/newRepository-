@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <module controller='wap_theme' >
+        <name>theme</name>
+        <title>论坛</title>
+        <disable>false</disable>
+        <allow_menu act='reply'>回复列表列表</allow_menu>
+        <default_menu>
+            <title>列表</title>
+            <act>index</act>
+            <hidden>false</hidden>
+        </default_menu>
+    </module>
+    
+       <module controller='wap_themes' >
+        <name>themes</name>
+        <title>论坛</title>
+        <disable>false</disable>
+        <allow_menu act='index'>回复列表列表</allow_menu>
+        <default_menu>
+            <title>列表</title>
+            <act>index</act>
+            <hidden>false</hidden>
+        </default_menu>
+    </module>
+</site>

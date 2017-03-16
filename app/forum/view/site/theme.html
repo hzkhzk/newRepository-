@@ -1,0 +1,16 @@
+ <{css src="fatie.css" app="b2c" pdir="css_mini"}> 
+ <form id="themeform" method="post" action="<{link ctl='site_theme' act='save' app='forum'}>">
+<div class="main">
+  <div class="top">
+    <input type="text" name="title" placeholder="起个标题吧">
+  </div>
+  <div class="cont">
+       <div style="width: 100%;"> 
+    <!-- 分享推荐收藏 -->
+     <{include file='site/Mmain.html'}>
+  </div>
+    <br><span>分类：</span>
+    <{input type="select" class="typeselect" name="type_id" nulloption="0" rows=$typeList valueColumn="type_id" labelColumn="typename" required="true"}>
+   <{button type="submit" class="stbutton" id="newreply-edit-form-submit" label="发帖" rel="_request"}>
+</div>
+</form>

@@ -1,0 +1,41 @@
+
+ <{css src="index.css" app="b2c" pdir="css_mini"}> 
+ <{css src="style-com.css" app="b2c" pdir="css_mini"}>
+ <{css src="con-right.css" app="b2c" pdir="css_mini"}>
+     <div class="container">
+    
+     	<div class="con-left">
+            <div class="left-content">
+             <{foreach from=$themes item=theme key=key}>
+                  <div class="left-con-module">
+                  	<p><a href="##"><{$theme.member_name}></a><span><span class="datetime">[<{$theme.time|date:'Y-m-d H:i'}>]</span></span></p>
+                  	<p><a class="aa"><{$themetype.typename}></a><a href="<{link app=forum ctl=site_theme act=l arg0=$theme.main_id}>"  target="_blank" title="<{$theme.title}>"><{$theme.title}></a></p>
+                  	<p class="p-icon"><a><{$theme.lnnum}></a><a><{$theme.reply_num}></a><a><{$theme.sc_num}></a></p>
+                  </div>
+                   <{/foreach}>
+                 </div>
+                  <{pagers data=$pager}>
+                 </div>
+   <div class="con-right">
+       <div class="right-content">
+        	<div class="module-one">
+                 <div class="one-title">热门帖子<a href="#">HOT</a></div>
+                 <ol class="one-content">
+                  <{foreach from=$hots item=hot name=key}>
+                   <{if $smarty.foreach.key.index <5}>
+                      <li><a href="<{link app=forum ctl=site_theme act=l arg0=$hot.main_id}>"  target="_blank" title="<{$hot.title}>"><{$hot.title}></a></li>
+                      <{/if}>     
+                      <{/foreach}>
+                 </ol>
+        	</div>
+        	<div class="module-two">
+        	<a href="<{$picture.item_url}>" target="_blank"><img src="<{$right1.item_imageid}>"></div></a>
+        	<div class="module-three">
+        <a href="<{$picture.item_url}>" target="_blank"><img src="<{$right2.item_imageid}>">
+        	</div></a>
+        </div>
+       
+     </div>              
+</div>
+  
+     

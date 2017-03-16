@@ -1,0 +1,109 @@
+
+<!-- 00000000000000000000000000000000000000000000 -->
+<form method="POST" id='newmember-edit-form' action="index.php?app=forum&ctl=admin_theme&act=list_member"  >
+   <div class="division">
+        <table   style='font-size:15px;'   >
+       <h1 style='font-size:15px;'>请选择搜索的列 并确认</h1>
+        <tr>
+          <th width="80px"><em class="red">*</em><{t}>选项：<{/t}></th>
+        </tr>
+         <tr>
+           <td><{input type='select' name='getselt' vtype="required" options=$selt.searchlist value='0' }></td>
+           <td><input type="text" name="searchcontent"    size="20" placeholder="请输入"  ><span></span></td> 
+      	   
+      	</tr>
+        </table>
+        <div class="table-action"><{button type="submit"  label="搜索"  id='newmember-edit-form-submit'}></div>
+        <hr style="margin:5px 0;">
+		<{area inject='.mainFoot'}>
+		
+		
+		<{/area}>
+</div>
+</form>  
+
+<!-- 000000000000000000000000000000000000000000000000000000 -->
+
+
+	<{if $mem}>
+<form method="POST" id='newmember-edit-form' action="index.php?app=forum&ctl=admin_theme&act=save_grey_member"  >
+   <div class="division">
+        <table   style='font-size:15px;'   >
+       
+       <h1 style='font-size:15px;'>请确认信息，选择并保存</h1>
+       
+         <tr>
+          <th width="80px"><em class="red">*</em><{t}>选项：<{/t}></th>
+          <th width="90px"><em class="red">*</em><{t}>编号为：<{/t}></th>
+           <th width="150px"><em class="red">*</em><{t}>会员名：<{/t}></th>
+           
+           <th width="120px"><em class="red">*</em><{t}>会员等级：<{/t}></th>
+           <th><em class="red">*</em><{t}>违规原因：<{/t}></th> 
+         
+           </tr>
+           <tr><td>请选择：</td></tr>
+        <{foreach from=$mem item=item name=mem}>
+           <tr>
+          <td><input type='checkbox' name='getid[]' vtype="required"   value="<{$item.member_id}>" ></td>
+            <td><{$item.member_id}> </td>
+            <td><span><{$item.member_name}></span></td>
+    	    <td><span><{$item.member_lv}></span></td> 
+            <td><input type="textarea" name="greyreason[<{$item.member_id}>]"    size="20"   ><span></span></td> 
+      	   </tr>
+              <{/foreach}>
+        </table>
+        <div class="table-action"><{button type="submit"  label="保存"  id='newmember-edit-form-submit'}></div>
+        <hr style="margin:5px 0;">
+	<{else}>
+	<div style="margin:20px;border:1px solid #999;background:#f0
+	f0f0;padding:20px;-moz-border-radius:5px;-webkit-border-radius:5px;radius:5px"><{t}>系统繁忙，请稍后！.<{/t}></div>
+	<{/if}>
+<{area inject='.mainFoot'}>
+
+<{/area}>
+</div>
+</form>
+
+
+<script>
+    (function(){
+        var _form = $('newmember-edit-form');
+        var btn =$('newmember-edit-form-submit');
+        var finder = finderGroup['<{$env.get.finder_id}>'];
+
+        _form.store('target',{
+            onComplete:function(){            
+
+            },
+            onSuccess:function(response){
+                var hash_res_obj = JSON.decode(response);
+                if (hash_res_obj.success != undefined && hash_res_obj.success != "")
+                {
+                    try{
+                        var _dialogIns = btn.getParent('.dialog').retrieve('instance');
+                    }catch(e){}
+
+                    if(_dialogIns)
+                    {
+                        _dialogIns.close();
+                        finder.refresh.delay(400,finder);
+                    }
+                }
+                else
+                {
+                    //alert(hash_res_obj.error);
+                }            
+            }
+        });
+
+        btn.addEvent('click',function(){
+            _form.fireEvent('submit',{stop:$empty});
+
+
+
+        });
+
+    })();
+    
+    
+    </script>

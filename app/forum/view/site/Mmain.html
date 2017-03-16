@@ -1,0 +1,15 @@
+
+ <{script src="ueditor.config.js" app="b2c" pdir="ueditor"}>
+ <{script src="ueditor.all.js" app="b2c" pdir="ueditor"}>
+ 
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+    </script>
+    <script type="text/javascript">
+        var ue = UE.getEditor('container', {
+    autoHeight: false,
+	initialFrameWidth: 800,
+	initialFrameHeight: 250 
+	
+});
+    </script>

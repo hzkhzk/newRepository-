@@ -1,0 +1,37 @@
+<{css src="phone1.css" app="wap" pdir="css_mini"}>
+
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+     ‹
+        </a>
+        <div class="a-name">
+            编辑帖子
+        </div>
+    </div>
+    </header>
+    <form id="themeform" method="post" action="<{link ctl='wap_theme' act='save' app='forum'}>">
+    <div class="main">
+  <div class="top">
+    <input type="text" name="title" placeholder="起个标题吧">
+  </div>
+  <div class="cont">
+    <textarea name="content" rows="20" cols="40" style="width: 100%; height: 430px; word-break: break-all; word-wrap: break-word; font-family: Helvetica; font-size:30px;margin: 12px;" required="required" placeholder="请输入您的内容..." ></textarea>   
+    </div>
+  <div class="bot">
+    <span>分类：</span>
+ <{input type="select" class="typeselect" name="type_id" nulloption="0" rows=$typeList valueColumn="type_id" labelColumn="typename" required="true"}>
+</div> <div class="c-bar">
+<{button type="submit"   label="发帖" rel="_request"}>
+</div>
+<!-- <a type="submit" rel="_request" >
+  <div class="b-bar">
+       <div class="b-name">
+            发 表
+        </div>
+    </div>
+</a> -->
+</div>
+</form>
+</div>

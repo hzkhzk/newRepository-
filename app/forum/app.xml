@@ -1,0 +1,21 @@
+<app version="1.0">
+  <name>商城论坛</name>
+
+  <description>商城论坛系统</description>
+
+  <author>
+      <name>hzk</name>
+      <email>26363xxxx@qq.cn</email>
+      <url>www.shopex.cn</url>
+  </author>
+
+  <version>0.1</version>
+
+  <license>license</license>
+  <depends>
+   <app>base</app>
+    <app>site</app>
+    <app>desktop</app>
+  </depends>
+
+</app>

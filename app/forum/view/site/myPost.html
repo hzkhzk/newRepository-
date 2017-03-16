@@ -1,0 +1,64 @@
+<{css src="style-com.css" app="b2c" pdir="css_mini"}>
+<{css src="con-right.css" app="b2c" pdir="css_mini"}>
+<!-- 帖子主内容区 -->
+<div class="page-article">
+  <!--所有帖子 -->
+  <div calss="mypost-top"><a href="<{$picture.item_url}>" target="_blank" ><img src="<{$picture.item_imageid}>"></a>
+   <div class="mypost-top-type">
+        <ul class="mypost-top-list">
+            <li>
+               <a href="<{link app=forum ctl=site_theme act=myPost}>" >我的帖子</a>
+            </li>
+        </ul>
+      </div>
+      <div class="mypost-top-type2">
+        <ul class="mypost-top-list2">
+            <li>
+               <a href="<{link app=forum ctl=site_theme act=myComment}>">我的评论</a>
+            </li>
+        </ul>
+      </div>
+      <div class="mypost-top-type2">
+        <ul class="mypost-top-list2">
+            <li>
+               <a href="<{link app=forum ctl=site_theme act=myCollection}>">我的收藏</a>
+            </li>
+        </ul>
+      </div>
+       <div class="member-menu-function" >
+       <a href="<{link app=forum ctl=site_theme act=add }>" class="lnklike" >发 帖</a>
+       <a href="<{link app=forum ctl=site_theme act=index}>">论 坛 首 页</a>
+       </div>
+  </div>
+  <div id="member_order_list" class="member-orders member-mod">
+    <ul class="article-list">
+      <{foreach from=$themes item=theme key=key}>
+      <li class="article-item"><span class="article-title"><a href="<{link app=forum ctl=site_theme act=l arg0=$theme.main_id}>" title="<{$theme.title}>"><{$theme.title}></a></span>
+      <sapn class="titlename"><{$theme.member_name}></sapn>
+      <span style="color:#9D9D9D;">[<{$theme.time|date:'Y-m-d H:i'}>]</span>
+      <span class="content"><a href="<{link app=forum ctl=site_theme act=l arg0=$theme.main_id}>" title="<{$theme.title}>"><{$theme.content}></a></span>
+      </li>
+      <{/foreach}>
+    </ul>
+    <{pagers data=$pager}>
+  </div>
+
+  <div class="con-right">
+       <div class="right-content">
+        	<div class="module-one">
+                 <div class="one-title">热门帖子<a href="#">HOT</a></div>
+                 <ol class="one-content">
+                  <{foreach from=$hots item=hot name=key}>
+                   <{if $smarty.foreach.key.index <5}>
+                      <li><a href="<{link app=forum ctl=site_theme act=l arg0=$hot.main_id}>"  target="_blank" title="<{$hot.title}>"><{$hot.title}></a></li>
+                      <{/if}>     
+                      <{/foreach}>
+                 </ol>
+        	</div>
+        	<div class="module-two">
+        	<a href="<{$picture.item_url}>" target="_blank"><img src="<{$right1.item_imageid}>"></div></a>
+        	<div class="module-three">
+        <a href="<{$picture.item_url}>" target="_blank"><img src="<{$right2.item_imageid}>">
+        	</div></a>
+        </div>
+</div>

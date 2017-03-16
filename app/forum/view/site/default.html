@@ -1,0 +1,45 @@
+		<meta charset="utf-8" />
+		<style>
+			form {
+				margin: 0;
+			}
+			textarea {
+				display: block;
+			}
+		</style>
+		 <{css src="themes/default/default.css" app="b2c" pdir="KindEditor"}>
+	 
+		<{script src="kindeditor-min.js" app="b2c" pdir="KindEditor"}>
+		<{script src="lang/zh_CN.js" app="b2c" pdir="KindEditor"}> 
+		<script>
+		var editor;
+		KindEditor.ready(function(K) {
+			editor = K.create('textarea[name="content"]', {
+				allowFileManager : true
+				themeType: 'simple',
+				 resizeType: 1,
+				 ../../../../ecstore.public/app/b2c/statics/kindeditor/plugins/code/prettify.css'
+
+				uploadJson: '../../../../ecstore.public/app/b2c/statics/kindeditor//forum/php/upload_json.php',
+				fileManagerJson: 'forum/php/file_manager_json.php',
+				allowFileManager: true,
+				//经测试，下面这行代码可有可无，不影响获取textarea的值
+				//afterCreate: function(){this.sync();}
+				//下面这行代码就是关键的所在，当失去焦点时执行 this.sync();
+				afterBlur: function(){this.sync();}
+				
+   			});
+		});
+		/*themeType: 'simple',
+		 resizeType: 1,
+		uploadJson: 'forum/php/upload_json.php',
+		fileManagerJson: 'forum/php/file_manager_json.php',
+		allowFileManager: true,
+		//经测试，下面这行代码可有可无，不影响获取textarea的值
+		//afterCreate: function(){this.sync();}
+		//下面这行代码就是关键的所在，当失去焦点时执行 this.sync();
+		afterBlur: function(){this.sync();}*/
+		</script>
+		
+			<textarea name="content" style="width:800px;height:400px;visibility:hidden;">000</textarea>
+

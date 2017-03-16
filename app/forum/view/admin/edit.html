@@ -1,0 +1,38 @@
+<form action="index.php?app=forum&ctl=admin_theme&act=toEdit" method="post">
+  <input type="hidden" name="item[item_id]" value="<{$item.item_id}>" id="gEditor-GId-input"/>
+
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="gridlist">
+    <tbody>
+      <tr>
+    <td>广告标题：</td>
+    <td><{input type="text" name="item[item_subject]" value=$item.item_subject size="40"}></td>
+      </tr>
+      
+      <tr>
+    <td>网址：</td>
+    <td><{input type="text" name="item[item_url]" value=$item.item_url size="40"}></td>
+      </tr>
+      
+      <tr>
+    <td>广告位置:</td>
+    <td><{$item.item_content}></td>
+      </tr>
+       <tr>
+    <td>图片推荐大小:</td>
+    <td><{$item.item_imagesize}></td>
+      </tr>
+      
+      <tr>
+       <th>广告图片：</th>
+       <td><div align="center" >
+       <{input type="image" name="item[item_imageid]" value=$item.item_imageid width=160 height=90}>
+       </div></td>
+  </tr>
+  
+      <tr>
+        <td align="center" colspan="2"><{button class="btn-primary" type="submit" label="保存"}></td>
+      </tr>
+
+    </tbody>
+  <table>
+</form>
